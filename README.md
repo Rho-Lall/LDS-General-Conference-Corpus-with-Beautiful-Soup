@@ -1,6 +1,8 @@
-# LDS-Conference-Scraper
-To my knowledge, a dataset of every talk given at LDS conferences has not been compiled. It is gathered by scraping https://www.lds.org/general-conference/conferences?lang=eng
+# LDS-General-Conference-Corpus-with-Beautiful-Soup
 
-* Possibly useful for statistical analysis or machine learning techniques such as natural language processing 
-* There are 3772 unique talks included
-* While the script includes some simple removing of '\n's and '\t's and some encoded strings, more cleaning is necessary to build a higher quality dataset. 
+This is a collection of talks given at Church of Jesus Christ General Conferences sourced by scraping https://www.churchofjesuschrist.org/study/general-conference?lang=eng
+
+* Useful for statistical analysis and natural language processing.
+* There are 3772 unique talks included in the conference_talks.csv
+* The .csv, conference_talks_2021, includes talks from the October 2021 General Conference
+* This code is an updated and revised version of a scraper from John Wood: github.com/johnmwood

@@ -21,13 +21,11 @@ def scrape_talk_urls(conference_url):
 
     soup = get_soup(conference_url)
 
-    div = soup.find("div", {"class": "section-wrapper lumen-layout lumen-layout--landing-3"})
-    sessions = div.findChildren("div", recursive=False)
+    a_tags = soup.find_all("a", {"class": "omeqik-0 cxIGgI list-tile listTile-3yP_N"})
 
-    all_links = ["https://www.churchofjesuschrist.org" + a["href"]
-            for session in sessions
-            for a in session.find_all("a", href=True)
-            if re.search("^/study/general-conference/\d{4}/(04|10)/.*[?]lang=eng", a["href"])]
+    all_links = ["https://www.churchofjesuschrist.org" + a_tag.get('href') 
+        for a_tag in a_tags 
+        if re.search("^/study/general-conference/\d{4}/(04|10)/\d{1}", a_tag["href"])]
 
     return all_links
 
@@ -135,7 +133,7 @@ for col in conference_df.columns:
 
 print(conference_df)
 # finish
-conference_df.to_csv("conference_talks.csv", index=False)
+conference_df.to_csv("conference_talks_2021.csv", index=False)
 
 end = time.time()
 print(end - start)
